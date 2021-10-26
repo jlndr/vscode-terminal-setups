@@ -1,0 +1,66 @@
+{
+	"name": "terminal-setups",
+	"displayName": "Terminal Setups",
+	"description": "Open multiple terminals from a configuration",
+	"publisher": "linderjohan",
+	"author": {
+		"name": "Johan Linder",
+		"email": "35808649+linderjohan@users.noreply.github.com"
+	},
+	"version": "0.0.1",
+	"repository": "github:linderjohan/vscode-terminal-setups",
+	"license": "MIT",
+	"private": true,
+	"engines": {
+		"vscode": "^1.61.0"
+	},
+	"keywords": [
+		"terminal",
+		"setup"
+	],
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"*",
+		"onCommand:terminal-setups.openSetups"
+	],
+	"main": "./dist/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "terminal-setups.openTerminalSetup",
+				"title": "Terminal Setup: Open Setup"
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run package",
+		"esbuild-base": "rimraf out && esbuild ./src/extension.ts --bundle --outfile=dist/extension.js --external:vscode --format=cjs --platform=node",
+		"build": "npm run -S esbuild-base -- --sourcemap",
+		"watch": "npm run -S esbuild-base -- --sourcemap --watch",
+		"package": "npm run esbuild-base -- --minify",
+		"compile-tests": "tsc -p . --outDir out",
+		"compile": "esbuild",
+		"watch-tests": "tsc -p -w . --outDir out",
+		"pretest": "npm run compile-tests && npm run compile && npm run lint",
+		"lint": "eslint src --ext ts",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/glob": "^7.1.4",
+		"@types/mocha": "^9.0.0",
+		"@types/node": "14.x",
+		"@types/vscode": "^1.61.0",
+		"@typescript-eslint/eslint-plugin": "^4.31.1",
+		"@typescript-eslint/parser": "^4.31.1",
+		"@vscode/test-electron": "^1.6.2",
+		"esbuild": "^0.13.8",
+		"eslint": "^7.32.0",
+		"glob": "^7.1.7",
+		"mocha": "^9.1.1",
+		"rimraf": "^3.0.2",
+		"ts-loader": "^9.2.5",
+		"typescript": "^4.4.3"
+	}
+}
