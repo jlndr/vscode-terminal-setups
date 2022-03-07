@@ -25,6 +25,7 @@ A terminal setup:
 ```jsonc
 {
 	"name": "<Setup name>",
+	"default": true // If this terminal should be open with the "Open default terminal"-short hand
 	"terminals": [
 		{
 			"cmd": "<Command sent to the terminal on startup>",
@@ -43,6 +44,11 @@ Colors: [Integrated terminal colors](https://code.visualstudio.com/api/reference
 
 Icons: [Built in icons](https://code.visualstudio.com/api/references/icons-in-labels#icon-listing)
 
+Autocomplete for colors and icons are available in settings.json:
+
+![Colors](images/autocomplete-color.png)
+![Icons](images/autocomplete-icon.png)
+
 Example:
 
 ```jsonc
@@ -52,6 +58,7 @@ Example:
 		"setups": [
 			{
 				"name": "Project Z",
+				"default": true,
 				"terminals" : [
 					{
 						"cmd": "git status",
