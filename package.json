@@ -7,7 +7,7 @@
 		"name": "Johan Linder",
 		"email": "35808649+linderjohan@users.noreply.github.com"
 	},
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"repository": "github:linderjohan/vscode-terminal-setups",
 	"license": "MIT",
 	"private": true,
@@ -38,7 +38,6 @@
 			}
 		],
 		"configuration": {
-
 			"title": "Terminal Setups configuration",
 			"properties": {
 				"terminalSetups": {
@@ -767,7 +766,6 @@
 							"description": "List of your customized terminal setups",
 							"scope": "machine-overridable"
 						}
-
 					},
 					"default": {},
 					"description": "Set your customized terminal setups",
