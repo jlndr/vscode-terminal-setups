@@ -1,7 +1,25 @@
 import * as vscode from 'vscode';
 import openTerminals from './utils/openTerminals';
 
-import type { QuickPickItem, Setup } from './utils/types';
+import type { QuickPickItem, Setup, TerminalConfig } from './utils/types';
+
+const createDescription = (terminals: TerminalConfig[]): string => {
+	let desc = '';
+
+	for (const [i, t] of terminals.entries()) {
+		if (Array.isArray(t)) {
+			desc += '[ ';
+			desc += createDescription(t);
+			desc += ' ]';
+		} else {
+			desc += `${t.name}`;
+		}
+
+		desc += i < terminals.length - 1 ? ', ' : '';
+	}
+
+	return desc;
+};
 
 const openSetup = async () => {
 	//TODO Change from 'settings.json'
@@ -10,20 +28,9 @@ const openSetup = async () => {
 	if (!setups.length) return;
 
 	const quickPickItems: QuickPickItem[] = setups.map((s, idx) => {
-		let item = {
-			idx,
-			label: s.name,
-		} as QuickPickItem;
+		let desc = 'Terminals: ' + createDescription(s.terminals);
 
-		let desc = 'Terminals: ';
-
-		for (const [i, t] of s.terminals.entries()) {
-			desc += `${t.name}${i < s.terminals.length - 1 ? ', ' : ''}`;
-		}
-
-		item.description = desc || undefined;
-
-		return item;
+		return { idx, label: s.name, description: desc } as QuickPickItem;
 	});
 
 	let terminalsToRun = setups[0].terminals;

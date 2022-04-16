@@ -35,7 +35,15 @@ A terminal setup:
 		},
 		{
 			// ... another terminal
-		}
+		},
+		[ // a split
+			{
+				// ... a terminal in the split
+			},
+			{
+				// ... another terminal in the split
+			}
+		]
 	]
 }
 ```
@@ -57,24 +65,8 @@ Example:
 "terminalSetups": {
 		"setups": [
 			{
-				"name": "Project Z",
-				"default": true,
-				"terminals" : [
-					{
-						"cmd": "git status",
-						"color": "terminal.ansiRed",
-						"icon": "github-inverted",
-						"name": "git",
-					},
-					{
-						"color": "terminal.ansiCyan",
-						"icon": "zap",
-						"name": "app",
-					},
-				]
-			},
-			{
 				"name": "Project X",
+				"default": true,
 				"terminals" : [
 					{
 						"cmd": "git status",
@@ -87,24 +79,78 @@ Example:
 						"icon": "database",
 						"name": "mysql",
 					},
-					{
-						"color": "terminal.ansiGreen",
-						"icon": "zap",
-						"name": "api",
-					},
-					{
-						"color": "terminal.ansiCyan",
-						"icon": "zap",
-						"name": "ui",
-					},
+					[
+						{
+							"color": "terminal.ansiBlue",
+							"icon": "zap",
+							"name": "api",
+						},
+						{
+							"color": "terminal.ansiCyan",
+							"icon": "zap",
+							"name": "ui",
+						},
+					],
 					{
 						"cmd": "Good morning!",
 						"color": "terminal.ansiWhite",
 						"icon": "terminal",
 						"name": "bash",
 					},
+		  ]
+			},
+			{
+				"name": "Project Y",
+				"terminals": [
+					{
+						"cmd": "gs",
+						"color": "terminal.ansiYellow",
+						"icon": "github-inverted",
+						"name": "git"
+					},
+					[
+						{
+							"color": "terminal.ansiCyan",
+							"icon": "database",
+							"name": "mysql"
+						},
+						{
+							"color": "terminal.ansiYellow",
+							"icon": "database",
+							"name": "redis"
+						},
+					],
+					[
+						{
+							"color": "terminal.ansiBlue",
+							"icon": "zap",
+							"name": "api"
+						},
+						{
+							"color": "terminal.ansiRed",
+							"icon": "zap",
+							"name": "worker"
+						},
+					],
 				]
-			}
+			},
+			{
+				"name": "Project Z",
+				"terminals": [
+					{
+						"cmd": "gs",
+						"color": "terminal.ansiYellow",
+						"icon": "github-inverted",
+						"name": "git"
+					},
+					{
+						"color": "terminal.ansiCyan",
+						"icon": "zap",
+						"name": "app"
+					}
+				]
+			},
 		]
 	},
+
 ```
