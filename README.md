@@ -6,6 +6,13 @@ A basic VSCode extension to open up multiple terminals from a configuration.
 
 ### Features
 
+- Quickly open multiple integrated terminals from a configuration
+- Customize each terminal name, color, icon, opening command
+- Supports terminal splits
+- Default setup for quick access
+
+### Usage
+
 Command palette
 
 ![Command palette](images/command-palette.png)
@@ -18,7 +25,7 @@ Done
 
 ![Terminals](images/terminals.png)
 
-### Usage
+### Setup definition
 
 A terminal setup:
 
@@ -35,21 +42,29 @@ A terminal setup:
 		},
 		{
 			// ... another terminal
-		}
+		},
+		[ // a split
+			{
+				// ... a terminal in the split
+			},
+			{
+				// ... another terminal in the split
+			}
+		]
 	]
 }
 ```
 
-Colors: [Integrated terminal colors](https://code.visualstudio.com/api/references/theme-color#integrated-terminal-colors)
+#### Colors: [Integrated terminal colors](https://code.visualstudio.com/api/references/theme-color#integrated-terminal-colors)
 
-Icons: [Built in icons](https://code.visualstudio.com/api/references/icons-in-labels#icon-listing)
+#### Icons: [Built in icons](https://code.visualstudio.com/api/references/icons-in-labels#icon-listing)
 
 Autocomplete for colors and icons are available in settings.json:
 
 ![Colors](images/autocomplete-color.png)
 ![Icons](images/autocomplete-icon.png)
 
-Example:
+### Example:
 
 ```jsonc
 //settings.json
@@ -57,24 +72,8 @@ Example:
 "terminalSetups": {
 		"setups": [
 			{
-				"name": "Project Z",
-				"default": true,
-				"terminals" : [
-					{
-						"cmd": "git status",
-						"color": "terminal.ansiRed",
-						"icon": "github-inverted",
-						"name": "git",
-					},
-					{
-						"color": "terminal.ansiCyan",
-						"icon": "zap",
-						"name": "app",
-					},
-				]
-			},
-			{
 				"name": "Project X",
+				"default": true,
 				"terminals" : [
 					{
 						"cmd": "git status",
@@ -87,16 +86,18 @@ Example:
 						"icon": "database",
 						"name": "mysql",
 					},
-					{
-						"color": "terminal.ansiGreen",
-						"icon": "zap",
-						"name": "api",
-					},
-					{
-						"color": "terminal.ansiCyan",
-						"icon": "zap",
-						"name": "ui",
-					},
+					[
+						{
+							"color": "terminal.ansiBlue",
+							"icon": "zap",
+							"name": "api",
+						},
+						{
+							"color": "terminal.ansiCyan",
+							"icon": "zap",
+							"name": "ui",
+						},
+					],
 					{
 						"cmd": "Good morning!",
 						"color": "terminal.ansiWhite",
@@ -104,7 +105,59 @@ Example:
 						"name": "bash",
 					},
 				]
-			}
+			},
+			{
+				"name": "Project Y",
+				"terminals": [
+					{
+						"cmd": "gs",
+						"color": "terminal.ansiYellow",
+						"icon": "github-inverted",
+						"name": "git"
+					},
+					[
+						{
+							"color": "terminal.ansiCyan",
+							"icon": "database",
+							"name": "mysql"
+						},
+						{
+							"color": "terminal.ansiYellow",
+							"icon": "database",
+							"name": "redis"
+						},
+					],
+					[
+						{
+							"color": "terminal.ansiBlue",
+							"icon": "zap",
+							"name": "api"
+						},
+						{
+							"color": "terminal.ansiRed",
+							"icon": "zap",
+							"name": "worker"
+						},
+					],
+				]
+			},
+			{
+				"name": "Project Z",
+				"terminals": [
+					{
+						"cmd": "gs",
+						"color": "terminal.ansiYellow",
+						"icon": "github-inverted",
+						"name": "git"
+					},
+					{
+						"color": "terminal.ansiCyan",
+						"icon": "zap",
+						"name": "app"
+					}
+				]
+			},
 		]
 	},
+
 ```

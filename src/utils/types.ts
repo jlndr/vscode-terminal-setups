@@ -10,10 +10,13 @@ export interface Terminal {
 	name: string;
 }
 
+// Support splits
+export type TerminalConfig = Terminal | Terminal[];
+
 export interface Setup {
 	name: string;
 	default: boolean;
-	terminals: Terminal[];
+	terminals: TerminalConfig[];
 }
 
 export interface QuickPickItem extends vscode.QuickPickItem {
