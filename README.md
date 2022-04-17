@@ -6,6 +6,13 @@ A basic VSCode extension to open up multiple terminals from a configuration.
 
 ### Features
 
+- Quickly open multiple integrated terminals from a configuration
+- Customize each terminal name, color, icon, opening command
+- Supports terminal splits
+- Default setup for quick access
+
+### Usage
+
 Command palette
 
 ![Command palette](images/command-palette.png)
@@ -18,7 +25,7 @@ Done
 
 ![Terminals](images/terminals.png)
 
-### Usage
+### Setup definition
 
 A terminal setup:
 
@@ -48,16 +55,16 @@ A terminal setup:
 }
 ```
 
-Colors: [Integrated terminal colors](https://code.visualstudio.com/api/references/theme-color#integrated-terminal-colors)
+#### Colors: [Integrated terminal colors](https://code.visualstudio.com/api/references/theme-color#integrated-terminal-colors)
 
-Icons: [Built in icons](https://code.visualstudio.com/api/references/icons-in-labels#icon-listing)
+#### Icons: [Built in icons](https://code.visualstudio.com/api/references/icons-in-labels#icon-listing)
 
 Autocomplete for colors and icons are available in settings.json:
 
 ![Colors](images/autocomplete-color.png)
 ![Icons](images/autocomplete-icon.png)
 
-Example:
+### Example:
 
 ```jsonc
 //settings.json
@@ -97,7 +104,7 @@ Example:
 						"icon": "terminal",
 						"name": "bash",
 					},
-		  ]
+				]
 			},
 			{
 				"name": "Project Y",
