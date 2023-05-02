@@ -5,10 +5,10 @@
 	"publisher": "linderjohan",
 	"author": {
 		"name": "Johan Linder",
-		"email": "35808649+linderjohan@users.noreply.github.com"
+		"email": "35808649+jlndr@users.noreply.github.com"
 	},
 	"version": "0.1.0",
-	"repository": "github:linderjohan/vscode-terminal-setups",
+	"repository": "github:jlndr/vscode-terminal-setups",
 	"license": "MIT",
 	"private": true,
 	"engines": {
