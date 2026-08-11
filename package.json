@@ -7,7 +7,7 @@
 		"name": "Johan Linder",
 		"email": "35808649+jlndr@users.noreply.github.com"
 	},
-	"version": "0.1.8",
+	"version": "0.1.9",
 	"repository": "github:jlndr/vscode-terminal-setups",
 	"license": "MIT",
 	"private": true,
